@@ -2,7 +2,7 @@
 A plugin for GranTotal to calculate interest rate.
 
 # Hot to install and use it?
-1. Dowload the [latest release](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/releases), and move <code>CalculateInterest.grandtotalplugin</code> to <code>~/Library/Application Support/com.mediaatelier.GrandTotal3/Plugins/</code>
+1. Dowload the [latest release](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/releases), unzip the file, and move <code>CalculateInterest.grandtotalplugin</code> to <code>~/Library/Application Support/com.mediaatelier.GrandTotal3/Plugins/</code>
 2. Open GrandTotal, create a new document or add a line item to an existing document
 3. Click on the wheeel icon and on <code>Calculate interest</code>
 4. Insert your values.
