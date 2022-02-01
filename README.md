@@ -15,7 +15,8 @@ A plugin for GranTotal to calculate interest rate.
 - The first and the last day are counted ([§§ 187](https://www.gesetze-im-internet.de/bgb/__187.html), [188 BGB](https://www.gesetze-im-internet.de/bgb/__188.html)).
 
 ## Offical Plugin repository
-For more information see [GrandTotal-Plugins](https://github.com/mediaatelier/GrandTotal-Plugins).
+For more information see [GrandTotal-Plugins](https://github.com/mediaatelier/GrandTotal-Plugins) and the [GrandTotal help page](https://www.mediaatelier.com/GrandTotal7/help/?lang=en).
+This plugin is based on the Area and Volume Plugin.
 
 ## Disclaimer
 I assume no liability for the correctness and completeness of the plugin and the information provided.
