@@ -1,0 +1,2 @@
+- name: github-action-publish-binaries
+  uses: skx/github-action-publish-binaries@release-2.0
