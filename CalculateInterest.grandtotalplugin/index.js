@@ -10,63 +10,35 @@
 */
 
 /*
- Dokumentation: https://api.statistiken.bundesbank.de/doc/index.html?urls.primaryName=Deutsche%20REST%20API%20Dokumentation
 
- 	Anfrage Bundesbank Basiszinssatz:
- 		fetch("https://api.statistiken.bundesbank.de/rest/data/BBK01/SU0115?detail=dataonly&lastNObservations=1")
- 		  .then(response => response.text())
- 		  .then(data => {
- 		    const parser = new DOMParser();
- 		    const xml = parser.parseFromString(data, "application/xml");
- 		    console.log(xml);
- 		  })
- 		  .catch(console.error);
+ function getPrimeRate(primeRate) {
 
+	fetch("https://api.statistiken.bundesbank.de/rest/data/BBK01/SU0115?detail=dataonly&lastNObservations=1", {
+		method: "GET", // POST, PUT, DELETE, etc.
+		headers: {
+			// the content type header value is usually auto-set
+			// depending on the request body
+			"Content-Type": "text/plain;charset=UTF-8"
+		},
+		referrerPolicy: "origin", // no-referrer, origin, same-origin...
+		mode: "cors", // same-origin, no-cors
+		credentials: "omit" // omit, include
+	})
+		.then(response => response.text())
+		.then(data => {
+			var parser = new DOMParser();
+			var xml = parser.parseFromString(data, "text/xml");
+			var obsValue = xml.getElementsByTagName("generic:Obs")[0].childNodes[1];
+			var obsResult = obsValue.getAttribute("value");
+			console.log(obsResult);
+		});
+}
 
-
- getPrimeRate();
-
- function getPrimeRate() {
-
- 	fetch("https://api.statistiken.bundesbank.de/rest/data/BBK01/SU0115?detail=dataonly&lastNObservations=1", {
- 			method: "GET", // POST, PUT, DELETE, etc.
- 			headers: {
- 				// the content type header value is usually auto-set
- 				// depending on the request body
- 				"Content-Type": "text/plain;charset=UTF-8"
- 			},
- 			referrerPolicy: "no-referrer-when-downgrade", // no-referrer, origin, same-origin...
- 			mode: "cors", // same-origin, no-cors
- 			credentials: "omit" // omit, include
- 		})
- 		.then(response => response.text())
- 		.then(data => {
- 			const parser = new DOMParser();
- 			const xml = parser.parseFromString(data, "text/xml");
- 			const obsValue = xml.getElementsByTagName("generic:ObsValue")[0];
- 			console.log(obsValue);
- 		});
- }
+getPrimeRate();
 
  */
 
-
- Dokumentation: https://api.statistiken.bundesbank.de/doc/index.html?urls.primaryName=Deutsche%20REST%20API%20Dokumentation
-
- 	//Anfrage Bundesbank Basiszinssatz:
-fetch();
- 		fetch("https://api.statistiken.bundesbank.de/rest/data/BBK01/SU0115?detail=dataonly&lastNObservations=1")
- 		  .then(response => response.text())
- 		  .then(data => {
- 		    const parser = new DOMParser();
- 		    const xml = parser.parseFromString(data, "application/xml");
- 		    console.log(xml);
- 		  })
- 		  .catch(console.error);
-
-
-
-/* Check if year is leap (366 days) year or regular year (365 days) for interest calculation*/
+ /* Check if year is leap (366 days) year or regular year (365 days) for interest calculation*/
 function daysOfYear(year) {
 	return isLeapYear(year) ? 366 : 365;
 }
