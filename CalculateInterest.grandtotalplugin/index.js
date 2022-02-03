@@ -39,11 +39,40 @@ getPrimeRate();
  */
 
 
- function fetch(...args) {
-    return import('node-fetch').then(({ default: fetch }) => fetch(...args));
+ async function fetch(...args) {
+    const { default: fetch } = await import('node-fetch');
+	 return await fetch(...args);
 }
 
-// Functiion to ge prime rate from Bundesbank
+// New function: get prime rate from Bundesbank
+getPrimeRate();
+async function getPrimeRate() {
+
+	let url = new URL('https://api.statistiken.bundesbank.de/rest/data/BBK01/SU0115?detail=dataonly&lastNObservations=1');
+	let params = {'name': 'John Doe', 'occupation': 'John Doe'};
+
+	let res = await fetch(url);
+
+	if (res.ok) {
+
+		let text = await res.text();
+		var parser = new DOMParser();
+		var xml = parser.parseFromString(text, "text/xml");
+    	var obsValue = xml.getElementsByTagName("generic:Obs")[0].childNodes[1];
+    	var obsResult = obsValue.getAttribute("value");
+		//console.log(obsResult);
+		var final =  parseInt(9) + +obsResult;
+		return final;
+	} else {
+		return `HTTP error: ${res.status}`;
+	}
+}
+
+getPrimeRate().then(primeResult => {
+	console.log(`then: ${primeResult}`);
+});
+
+// Old function: get prime rate from Bundesbank
 getPrimeRate();
 
 function getPrimeRate() {
