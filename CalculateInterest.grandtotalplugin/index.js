@@ -2,8 +2,8 @@
 	Return a JSON with the values you like to replace
 	
 	Keys:
-	
-	delayPeriod -> Delay Period (number)
+	delayEnd -> Delay period end date (date, formatted)
+	delayStart -> Delay period start date (date, formatted)
 	outstandingDebt -> Outstanding debt (number)
 	interestRate -> Interest rate (number)
 
@@ -50,7 +50,7 @@ function update() {
 		day: 'numeric'
 	};
 
-	aLine = localize("Delay Period") + ": " + delayInDays + " " + localize("Days") + " (" + localize("from") + " " + delayStart.toLocaleDateString('de-De', optionsLocaleDate) + " " + localize("until") + " " + delayEnd.toLocaleDateString('de-De', optionsLocaleDate) + ")" + "\n" + localize("Original claim amount") + ": " + currency + " " + formattedNumber(originalClaimAmount) + "\n" + localize("Interest rate") + ": " + formattedNumber(interestRate) + " %";
+	aLine = `${localize("Delay Period")}: ${delayInDays} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString('de-De', optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString('de-De', optionsLocaleDate)})\n${localize("Original claim amount")}: ${currency} ${formattedNumber(originalClaimAmount)}\n${localize("Interest rate")}: ${formattedNumber(interestRate)-} %`;
 
 
 	aLine = "<i>" + aLine + "</i>";
@@ -71,3 +71,4 @@ function removePrevious(s) {
 	var regExp = /(\<i)\s*[^\>]*\>([^\<]*\<\/i>)?/gi;
 	return s.replace(regExp, "");
 }
+
