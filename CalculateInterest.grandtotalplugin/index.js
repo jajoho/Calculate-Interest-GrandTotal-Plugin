@@ -36,6 +36,35 @@
 
 getPrimeRate();
 
+// Old function: get prime rate from Bundesbank
+getPrimeRate();
+
+function getPrimeRate() {
+    return fetch("https://api.statistiken.bundesbank.de/rest/data/BBK01/SU0115?detail=dataonly&lastNObservations=1", {
+        method: "GET",
+        headers: {
+            "Content-Type": "text/plain;charset=UTF-8"
+        },
+        referrerPolicy: "origin",
+        mode: "cors",
+        credentials: "omit"
+    })
+        .then(response => response.text())
+        .then(data => {
+            var parser = new DOMParser();
+            var xml = parser.parseFromString(data, "text/xml");
+            var obsValue = xml.getElementsByTagName("generic:Obs")[0].childNodes[1];
+            var obsResult = obsValue.getAttribute("value");
+            //console.log("obsResult inside getPrimeRate function " + obsResult);
+            return obsResult;
+        })
+        .then(obsResult => {
+            var finalResult = 9 + +obsResult;
+            //console.log("finalResult inside getPrimeRate function " + finalResult);
+            return finalResult;
+        });
+}
+
  */
 
 
@@ -68,38 +97,9 @@ async function getPrimeRate() {
 	}
 }
 
-getPrimeRate().then(primeResult => {
+let primePrimePrime = getPrimeRate().then(primeResult => {
 	console.log(`then: ${primeResult}`);
 });
-
-// Old function: get prime rate from Bundesbank
-getPrimeRate();
-
-function getPrimeRate() {
-    return fetch("https://api.statistiken.bundesbank.de/rest/data/BBK01/SU0115?detail=dataonly&lastNObservations=1", {
-        method: "GET",
-        headers: {
-            "Content-Type": "text/plain;charset=UTF-8"
-        },
-        referrerPolicy: "origin",
-        mode: "cors",
-        credentials: "omit"
-    })
-        .then(response => response.text())
-        .then(data => {
-            var parser = new DOMParser();
-            var xml = parser.parseFromString(data, "text/xml");
-            var obsValue = xml.getElementsByTagName("generic:Obs")[0].childNodes[1];
-            var obsResult = obsValue.getAttribute("value");
-            //console.log("obsResult inside getPrimeRate function " + obsResult);
-            return obsResult;
-        })
-        .then(obsResult => {
-            var finalResult = 9 + +obsResult;
-            //console.log("finalResult inside getPrimeRate function " + finalResult);
-            return finalResult;
-        });
-}
 
 
 /* Check if year is leap (366 days) year or regular year (365 days) for interest calculation*/
