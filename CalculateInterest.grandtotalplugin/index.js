@@ -50,7 +50,7 @@ function update() {
 		day: 'numeric'
 	};
 
-	aLine = `${localize("Delay Period")}: ${delayInDays} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString('de-De', optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString('de-De', optionsLocaleDate)})\n${localize("Original claim amount")}: ${currency} ${formattedNumber(originalClaimAmount)}\n${localize("Interest rate")}: ${formattedNumber(interestRate)-} %`;
+	aLine = `${localize("Delay Period")}: ${delayInDays} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString('de-De', optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString('de-De', optionsLocaleDate)})\n${localize("Original claim amount")}: ${currency} ${formattedNumber(originalClaimAmount)}\n${localize("Interest rate")}: ${formattedNumber(interestRate)} %`;
 
 
 	aLine = "<i>" + aLine + "</i>";
