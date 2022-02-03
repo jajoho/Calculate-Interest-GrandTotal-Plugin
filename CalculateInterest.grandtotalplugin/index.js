@@ -62,7 +62,7 @@ function update() {
 	var delayInDays = ((delayEnd - delayStart) / (1000 * 3600 * 24)) + 1; // +1 to count first and last day
 
 	/* Calculate interest and round the result of the calculation */
-	var sumInterest = originalClaimAmount * interestRate / 100 / daysOfYear(currentYear) * delayInDays;
+	var sumInterest = originalClaimAmount * getPrimeRate() / 100 / daysOfYear(currentYear) * delayInDays;
 	var interestRounded = Math.round((sumInterest + Number.EPSILON) * 100) / 100;
 
 	/* Create and change notes and provide GrandTotal interest sum for the document*/
