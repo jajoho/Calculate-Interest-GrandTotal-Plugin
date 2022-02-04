@@ -81,9 +81,7 @@ async function getPrimeRate() {
 	let params = {'name': 'John Doe', 'occupation': 'John Doe'};
 
 	let res = await fetch(url);
-
 	if (res.ok) {
-
 		let text = await res.text();
 		var parser = new DOMParser();
 		var xml = parser.parseFromString(text, "text/xml");
