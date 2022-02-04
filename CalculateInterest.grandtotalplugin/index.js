@@ -76,11 +76,16 @@ function getPrimeRate() {
 // New function: get prime rate from Bundesbank
 getPrimeRate();
 async function getPrimeRate() {
-
 	let url = new URL('https://api.statistiken.bundesbank.de/rest/data/BBK01/SU0115?detail=dataonly&lastNObservations=1');
-	let params = {'name': 'John Doe', 'occupation': 'John Doe'};
-
-	let res = await fetch(url);
+	let res = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "text/plain;charset=UTF-8"
+        },
+        referrerPolicy: "origin",
+        mode: "cors",
+        credentials: "omit"
+    });
 	if (res.ok) {
 		let text = await res.text();
 		var parser = new DOMParser();
