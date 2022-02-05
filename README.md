@@ -23,6 +23,7 @@ Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 - Der erste und der letzte Tag werden gezählt.([§§ 187](https://www.gesetze-im-internet.de/bgb/__187.html), [188 BGB](https://www.gesetze-im-internet.de/bgb/__188.html)).
 - Der Zinssatz wird anhand des aktuellen Basiszinssatzes von der Bundesbank berechnet.
 - Die Berechnung ist nicht genau, wenn die Zinsenen über mehrere Jahre berechnet werden und eines der Jahre ein Schaltjahr ist (issue [#3](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/issues/3)).
+- Die Berechnung funktioniert nicht, wenn sich der Basiszinssatz während des Verzugszeitraums ändern sollte. Eine Änderung gab es aber schon [seit einiger 2016 nicht mehr](https://www.bundesbank.de/dynamic/action/de/statistiken/zeitreihen-datenbanken/zeitreihen-datenbank/723452/723452?listId=www_s510_mb02&tsId=BBK01.SU0115&dateSelect=2022).
 
 #### Mehr GrandTotal Plugins
 
@@ -53,6 +54,7 @@ A plugin for GranTotal to calculate interest rate.
 - The first and the last day are counted ([§§ 187](https://www.gesetze-im-internet.de/bgb/__187.html), [188 BGB](https://www.gesetze-im-internet.de/bgb/__188.html)).
 - The interest rate is calculated using the current prime rate from the Bundesbank.
 - The calculation is not accurate if the interest is calculated over several years and one of the years is a leap year (issue [#3](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/issues/3)).
+- The calculation does not work if the prime rate should change during the default period. However, there has [not been a change since some 2016](https://www.bundesbank.de/dynamic/action/de/statistiken/zeitreihen-datenbanken/zeitreihen-datenbank/723452/723452?listId=www_s510_mb02&tsId=BBK01.SU0115&dateSelect=2022).
 
 #### Offical Plugin repository
 
