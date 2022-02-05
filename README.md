@@ -12,7 +12,7 @@ Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 
 1. Die [aktuelleste Version](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/releases), herunterladen, die Datei entpacken und `CalculateInterest.grandtotalplugin` nach `~/Library/Application Support/com.mediaatelier.GrandTotal3/Plugins/` verschieben.
 2. GrandTotal öffnen, ein neues Dokument anlegen oder zu einem bestehenden eine neue Zeile hinzufügen.
-3. Auf das Zahnradsymbol klicken und auf `Verzugszinsen berechnen`
+3. Auf das Zahnradsymbol klicken und auf `Verzugszinsen berechnen`.
 4. Eigene Werte eintragen.
 
 ![Verzugszinsen berechnen](https://user-images.githubusercontent.com/15175599/152641374-c7db59d9-2bf1-45eb-ac41-897b7c4fdaa6.png)
@@ -22,7 +22,7 @@ Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 - Die Zinsen werden nach der Effektivzinsmethode ([ICMA-Methode, früher ISMA-Methode)](https://de.wikipedia.org/wiki/Zinsberechnungsmethode#act/act_–_tagesgenaue_oder_Effektivzinsmethode_(ICMA-Methode,_früher_ISMA-Methode)) berechnet.
 - Der erste und der letzte Tag werden gezählt.([§§ 187](https://www.gesetze-im-internet.de/bgb/__187.html), [188 BGB](https://www.gesetze-im-internet.de/bgb/__188.html)).
 - Der Zinssatz wird anhand des aktuellen Basiszinssatzes von der Bundesbank berechnet.
-- Die Berechnung ist nicht genau, wenn die Zinsenen über mehrere Jahre berechnet werden und eines der Jahre ein Schaltjahr ist (Issue [#3](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/issues/3)).
+- Die Berechnung ist nicht genau, wenn die Zinsenen über mehrere Jahre berechnet werden und eines der Jahre ein Schaltjahr ist (issue [#3](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/issues/3)).
 
 #### Mehr GrandTotal Plugins
 
@@ -40,7 +40,7 @@ A plugin for GranTotal to calculate interest rate.
 
 ### Hot to install and use it?
 
-1. Dowload the [latest release](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/releases), unzip the file, and move `CalculateInterest.grandtotalplugin` to `~/Library/Application Support/com.mediaatelier.GrandTotal3/Plugins/`
+1. Dowload the [latest release](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/releases), unzip the file, and move `CalculateInterest.grandtotalplugin` to `~/Library/Application Support/com.mediaatelier.GrandTotal3/Plugins/`.
 2. Open GrandTotal, create a new document or add a line item to an existing document.
 3. Click on the wheeel icon and on `Calculate interest`.
 4. Insert your values.
@@ -52,7 +52,7 @@ A plugin for GranTotal to calculate interest rate.
 - The interest rate is calculated using the effective interest method ([ICMA (ISMA)-Rule (act/act)](https://en.wikipedia.org/wiki/Day_count_convention#Actual_methods)).
 - The first and the last day are counted ([§§ 187](https://www.gesetze-im-internet.de/bgb/__187.html), [188 BGB](https://www.gesetze-im-internet.de/bgb/__188.html)).
 - The interest rate is calculated using the current prime rate from the Bundesbank.
-- The calculation is not accurate if the interest is calculated over several years and one of the years is a leap year (Issue [#3](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/issues/3)).
+- The calculation is not accurate if the interest is calculated over several years and one of the years is a leap year (issue [#3](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/issues/3)).
 
 #### Offical Plugin repository
 
