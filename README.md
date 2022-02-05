@@ -18,8 +18,8 @@ Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 - Die Berechnung ist nicht genau, wenn die Zinsenen über mehrere Jahre berechnet werden und eines der Jahre ein Schaltjahr ist.
 
 ### Mehr GrandTotal Plugins
-Mehr Informationen zu Plugins gibt es hier: [GrandTotal-Plugins](https://github.com/mediaatelier/GrandTotal-Plugins). Und die Hilfe von GrandTotal [GrandTotal hier](https://www.mediaatelier.com/GrandTotal7/help/?lang=de).
-Dieses Plugins basiert auf dem Area and Volume Plugin.
+Mehr Informationen zu Plugins gibt es hier: [GrandTotal-Plugins](https://github.com/mediaatelier/GrandTotal-Plugins). Und die Hilfe von [GrandTotal hier](https://www.mediaatelier.com/GrandTotal7/help/?lang=de).
+Dieses Plugins basiert auf dem Area und Volume Plugin.
 
 ### Haftungsausschluss
 Ich übernehme keine Haftung für die Richtigkeit und Vollständigkeit des Plugins und der bereitgestellten Informationen.
