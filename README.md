@@ -1,6 +1,6 @@
-[![CodeQL](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/actions/workflows/codeql-analysis.yml)
-
 # Calculate interest rate – GrandTotal Plugin
+
+[![CodeQL](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/actions/workflows/codeql-analysis.yml)
 
 [English translation below](#english-calculate-interest-rate--grandtotal-plugin).
 
