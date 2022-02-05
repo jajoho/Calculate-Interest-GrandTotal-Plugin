@@ -10,7 +10,7 @@ Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 
 ### Installieren und nutzen
 
-1. Die [aktuelleste Version](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/releases), herunterladen, die Datei entpacken und `CalculateInterest.grandtotalplugin` nach `~/Library/Application Support/com.mediaatelier.GrandTotal3/Plugins/` verschieben.
+1. Die [aktuelleste Version](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/releases) herunterladen, die ZIP-Datei entpacken und `CalculateInterest.grandtotalplugin` nach `~/Library/Application Support/com.mediaatelier.GrandTotal3/Plugins/` verschieben.
 2. GrandTotal öffnen, ein neues Dokument anlegen oder zu einem bestehenden eine neue Zeile hinzufügen.
 3. Auf das Zahnradsymbol klicken und auf `Verzugszinsen berechnen`.
 4. Eigene Werte eintragen.
