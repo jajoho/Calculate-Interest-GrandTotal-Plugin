@@ -35,8 +35,8 @@ A plugin for GranTotal to calculate interest rate.
 3. Click on the wheeel icon and on <code>Calculate interest</code>.
 4. Insert your values.
 
+![Calculate Interest Rate](https://user-images.githubusercontent.com/15175599/152641465-27db9988-ff97-467b-8806-22ad7a6018de.png)
 
-![Calculate Interest Screenshot](https://user-images.githubusercontent.com/15175599/151969970-22a6bd5a-a078-4f07-b708-4ec4791d8a5c.png)
 
 
 ### Calculation method
