@@ -22,7 +22,7 @@ function getXML() {
 		var regExp = /-[0-9]*\.[0-9]+/m;
 		result = string.match(regExp);
 	}
-};
+}
 
 // Check if year is leap (366 days) year or regular year (365 days) for interest calculation
 function daysOfYear(year) {
@@ -33,8 +33,8 @@ function isLeapYear(year) {
 	return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
 }
 
-var currentTime = new Date()
-var currentYear = currentTime.getFullYear()
+var currentTime = new Date();
+var currentYear = currentTime.getFullYear();
 
 
 update();
@@ -48,7 +48,7 @@ function update() {
 	var delayInDays = ((delayEnd - delayStart) / (1000 * 3600 * 24)) + 1; // +1 to count first and last day
 
 	// Calculate final interest rate with interest rate entered by user and prime rate from bundesbank.de 
-	var calculatedInterestRate = parseInt(interestRate) + +getXML();
+	var calculatedInterestRate = parseInt(interestRate) + parseInt(getXML());
 
 	// Calculate interest and round the result of the calculation
 	var sumInterest = originalClaimAmount * calculatedInterestRate / 100 / daysOfYear(currentYear) * delayInDays;
@@ -59,9 +59,9 @@ function update() {
 	if (!aNotes)
 		aNotes = "";
 
-	aNotes = removePrevious(aNotes)
+	aNotes = removePrevious(aNotes);
 
-	const optionsLocaleDate = {
+	optionsLocaleDate = {
 		year: 'numeric',
 		month: 'short',
 		day: 'numeric'
