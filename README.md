@@ -1,6 +1,6 @@
 # Calculate interest rate – GrandTotal Plugin
 
-English description below.
+[English translation below](#english-calculate-interest-rate--grandtotal-plugin).
 
 ## Deutsch: Verzugszinsen berechnen – GrandTotal Plugin
 
