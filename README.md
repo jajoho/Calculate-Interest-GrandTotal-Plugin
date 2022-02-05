@@ -1,5 +1,7 @@
 # Calculate interest rate – GrandTotal Plugin
 
+English description below.
+
 ## Deutsch: Verzugszinsen berechnen – GrandTotal Plugin
 
 Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
