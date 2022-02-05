@@ -15,7 +15,7 @@ Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 - Die Zinsen werden nach der Effektivzinsmethode ([ICMA-Methode, früher ISMA-Methode)](https://de.wikipedia.org/wiki/Zinsberechnungsmethode#act/act_–_tagesgenaue_oder_Effektivzinsmethode_(ICMA-Methode,_früher_ISMA-Methode)) berechnet.
 - Der erste und der letzte Tag werden gezählt.([§§ 187](https://www.gesetze-im-internet.de/bgb/__187.html), [188 BGB](https://www.gesetze-im-internet.de/bgb/__188.html)).
 - Der Zinssatz wird anhand des aktuellen Basiszinssatzes von der Bundesbank berechnet.
-- Die Berechnung ist nicht genau, wenn die Zinsenen über mehrere Jahre berechnet werden und eines der Jahre ein Schaltjahr ist (Issue #3).
+- Die Berechnung ist nicht genau, wenn die Zinsenen über mehrere Jahre berechnet werden und eines der Jahre ein Schaltjahr ist (Issue [#3](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/issues/3)).
 
 ### Mehr GrandTotal Plugins
 Mehr Informationen zu Plugins gibt es hier: [GrandTotal-Plugins](https://github.com/mediaatelier/GrandTotal-Plugins). Und die Hilfe von [GrandTotal hier](https://www.mediaatelier.com/GrandTotal7/help/?lang=de).
@@ -43,7 +43,7 @@ A plugin for GranTotal to calculate interest rate.
 - The interest rate is calculated using the effective interest method ([ICMA (ISMA)-Rule (act/act)](https://en.wikipedia.org/wiki/Day_count_convention#Actual_methods)).
 - The first and the last day are counted ([§§ 187](https://www.gesetze-im-internet.de/bgb/__187.html), [188 BGB](https://www.gesetze-im-internet.de/bgb/__188.html)).
 - The interest rate is calculated using the current prime rate from the Bundesbank.
-- The calculation is not accurate if the interest is calculated over several years and one of the years is a leap year (Issue #3).
+- The calculation is not accurate if the interest is calculated over several years and one of the years is a leap year (Issue [#3](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/issues/3)).
 
 ### Offical Plugin repository
 For more information see [GrandTotal-Plugins](https://github.com/mediaatelier/GrandTotal-Plugins) and the [GrandTotal help page](https://www.mediaatelier.com/GrandTotal7/help/?lang=en).
