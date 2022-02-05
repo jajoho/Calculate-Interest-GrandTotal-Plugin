@@ -2,7 +2,7 @@
 "Delay Start" = "First day after due date";
 "Delay End" = "Date of payment";
 "Original claim amount" = "Original claim amount";
-"Interest rate with percent" = "Intereset rate (in %)";
+"Interest rate with percent" = "Intereset rate (above the prime rate)";
 "Days" = "Days";
 "Interest rate" = "Interest rate";
 "Delay Period" = "Delay period";

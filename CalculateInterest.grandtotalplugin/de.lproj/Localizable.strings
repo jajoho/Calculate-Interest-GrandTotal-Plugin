@@ -2,7 +2,7 @@
 "Delay Start" = "Erster Verzugstag";
 "Delay End" = "Zahlungseingang";
 "Original claim amount" = "Ursprüngliche Forderung";
-"Interest rate with percent" = "Zinssatz (in %)";
+"Interest rate with percent" = "Zinssatz (über dem Basiszinssatz)";
 "Days" = "Tage";
 "Interest rate" = "Zinssatz";
 "Delay Period" = "Verzugsdauer";
