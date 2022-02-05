@@ -48,7 +48,7 @@ function update() {
 	var delayInDays = ((delayEnd - delayStart) / (1000 * 3600 * 24)) + 1; // +1 to count first and last day
 
 	// Calculate final interest rate with interest rate entered by user and prime rate from bundesbank.de 
-	var calculatedInterestRate = parseInt(interestRate) + parseInt(getXML());
+	var calculatedInterestRate = parseInt(interestRate) + +getXML();
 
 	// Calculate interest and round the result of the calculation
 	var sumInterest = originalClaimAmount * calculatedInterestRate / 100 / daysOfYear(currentYear) * delayInDays;
@@ -89,4 +89,3 @@ function removePrevious(s) {
 	var regExp = /(\<i)\s*[^\>]*\>([^\<]*\<\/i>)?/gi;
 	return s.replace(regExp, "");
 }
-
