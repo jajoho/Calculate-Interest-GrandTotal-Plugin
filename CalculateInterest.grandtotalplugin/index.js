@@ -9,8 +9,22 @@
 
 */
 
+// Function to fetch via API the prime rate from bundesbank.de
+function getXML(){
+	string = loadURL("GET","https://api.statistiken.bundesbank.de/rest/data/BBK01/SU0115?detail=dataonly&lastNObservations=1");
+	if (string.length == 0){
+		return null;
+	}
+	getString();
+	return result;
 
-/* Check if year is leap (366 days) year or regular year (365 days) for interest calculation*/
+	function getString() {
+		var regExp = /-[0-9]*\.[0-9]+/m;
+		result = string.match(regExp);
+	}
+};
+
+// Check if year is leap (366 days) year or regular year (365 days) for interest calculation
 function daysOfYear(year) {
 	return isLeapYear(year) ? 366 : 365;
 }
@@ -28,16 +42,19 @@ update();
 function update() {
 	var result = {};
 
-	/* Calculate delay period in number of days */
+	///Calculate delay period in number of days
 	delayEnd = new Date(delayEnd);
 	delayStart = new Date(delayStart);
 	var delayInDays = ((delayEnd - delayStart) / (1000 * 3600 * 24)) + 1; // +1 to count first and last day
 
-	/* Calculate interest and round the result of the calculation */
-	var sumInterest = originalClaimAmount * interestRate / 100 / daysOfYear(currentYear) * delayInDays;
+	// Calculate final interest rate with interest rate entered by user and prime rate from bundesbank.de 
+	var calculatedInterestRate = parseInt(interestRate) + +getXML();
+
+	// Calculate interest and round the result of the calculation
+	var sumInterest = originalClaimAmount * calculatedInterestRate / 100 / daysOfYear(currentYear) * delayInDays;
 	var interestRounded = Math.round((sumInterest + Number.EPSILON) * 100) / 100;
 
-	/* Create and change notes and provide GrandTotal interest sum for the document*/
+	// Create and change notes and provide GrandTotal interest sum for the document
 	var aNotes = valueForKeyPath("notes");
 	if (!aNotes)
 		aNotes = "";
@@ -50,7 +67,8 @@ function update() {
 		day: 'numeric'
 	};
 
-	aLine = `${localize("Delay Period")}: ${delayInDays} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString('de-De', optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString('de-De', optionsLocaleDate)})\n${localize("Original claim amount")}: ${currency} ${formattedNumber(originalClaimAmount)}\n${localize("Interest rate")}: ${formattedNumber(interestRate)} %`;
+
+	aLine = `${localize("Delay Period")}: ${delayInDays} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString('de-De', optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString('de-De', optionsLocaleDate)})\n${localize("Original claim amount")}: ${currency} ${formattedNumber(originalClaimAmount)}\n${localize("Interest rate")}: ${formattedNumber(calculatedInterestRate)} %`;
 
 
 	aLine = "<i>" + aLine + "</i>";
