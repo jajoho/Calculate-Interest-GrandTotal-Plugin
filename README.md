@@ -1,4 +1,4 @@
-# Deutsch: Calculate-Interest-GrandTotal Plugin
+# Deutsch: Verzugszinsen berechnen – GrandTotal Plugin
 Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 
 ## Installieren und nutzen
@@ -26,7 +26,7 @@ Ich übernehme keine Haftung für die Richtigkeit und Vollständigkeit des Plugi
 Haftungsansprüche gegen mich, die sich auf Schäden materieller oder ideeller Art beziehen, welche durch die Nutzung des Plugins entstanden sind, sind ausgeschlossen, sofern kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt.
 
 
-# English: Calculate-Interest-GrandTotal Plugin
+# English: Calculate interest – GrandTotal Plugin
 A plugin for GranTotal to calculate interest rate.
 
 ## Hot to install and use it?
