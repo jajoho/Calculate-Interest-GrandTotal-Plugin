@@ -7,8 +7,8 @@ Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 3. Auf das Zahnradsymbol klicken und auf <code>Verzugszinsen berechnen</code>
 4. Eigene Werte eintragen.
 
+![Verzugszinsen berechnen](https://user-images.githubusercontent.com/15175599/152641374-c7db59d9-2bf1-45eb-ac41-897b7c4fdaa6.png)
 
-![Calculate Interest Screenshot](https://user-images.githubusercontent.com/15175599/151969970-22a6bd5a-a078-4f07-b708-4ec4791d8a5c.png)
 
 
 ### Berechnungsmethode
