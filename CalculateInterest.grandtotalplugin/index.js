@@ -82,6 +82,7 @@ optionsLocaleDate = {
   day: "numeric",
 }
 
+// Distinction between 1 and several days for notes
 function localizeDay(){
   if (delayInDays == 1) {
     return `${localize("Day")} (${delayStart.toLocaleDateString("de-De",optionsLocaleDate)})`;
