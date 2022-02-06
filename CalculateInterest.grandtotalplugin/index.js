@@ -8,9 +8,6 @@
 //	ownInterestRate -> Own interest rate, if the automatically calculated one is to be overwritten (number)
 
 // Function to fetch via API the prime rate from bundesbank.de
-
-
-
 function getXML() {
   const URL = "https://api.statistiken.bundesbank.de/rest/data/";
   const PATH = "BBK01/SU0115?detail=dataonly&lastNObservations=1";
