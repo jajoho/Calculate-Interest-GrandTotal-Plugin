@@ -46,11 +46,21 @@
 			<key>width</key>
 			<real>100</real>
 		</dict>
+		<dict>
+			<key>label</key>
+			<string>Own interest rate</string>
+			<key>name</key>
+			<string>ownInterestRate</string>
+			<key>type</key>
+			<string>number</string>
+			<key>width</key>
+			<real>100</real>
+		</dict>
 	</array>
 	<key>copyright</key>
 	<string>© 2022 Jatayu Holznagel</string>
 	<key>CFBundleVersion</key>
-	<string>2.1</string>
+	<string>2.2</string>
 	<key>width</key>
 	<real>500</real>
 	<key>GrandTotalMinimumVersion</key>
