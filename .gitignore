@@ -1,3 +1,6 @@
 
 .DS_Store
 .vscode/extensions.json
+.markdownlint.yaml
+.trunk/trunk.yaml
+.trunk/.gitignore
