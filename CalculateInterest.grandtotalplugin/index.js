@@ -25,7 +25,7 @@ function getXML() {
   return result;
 
   function getString() {
-    var regExp = /-[0-9]*\.[0-9]+/m;
+    const regExp = /-[0-9]*\.[0-9]+/m;
     result = string.match(regExp);
   }
 }}
@@ -105,6 +105,6 @@ function update() {
 }
 
 function removePrevious(s) {
-  var regExp = /(\<i)\s*[^\>]*\>([^\<]*\<\/i>)?/gi;
+  const regExp = /(\<i)\s*[^\>]*\>([^\<]*\<\/i>)?/gi;
   return s.replace(regExp, "");
 }
