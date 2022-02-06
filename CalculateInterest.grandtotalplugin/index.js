@@ -21,14 +21,15 @@ function getXML() {
     return null;
   }
   else {
-  getString();
-  return result;
+    getString();
+    return result;
 
-  function getString() {
-    const regExp = /-[0-9]*\.[0-9]+/m;
-    result = string.match(regExp);
+    function getString() {
+      const regExp = /-[0-9]*\.[0-9]+/m;
+      result = string.match(regExp);
+    }
   }
-}}
+}
 
 var primeRate = getXML();
 var primeRate = parseFloat(primeRate);
@@ -55,16 +56,16 @@ var delayInDays = Math.round((delayEnd - delayStart) / (1000 * 3600 * 24) + 1); 
 
 // Calculate final interest rate with own interest rate or prime rate from bundesbank.de
 function calculatedInterestRate() {
-	if (ownInterestRate > 0) {
-		return ownInterestRate;
-	}
-	if (primeRate == null) {
-		return localize("Check Internet Connection");
-	}
-	else {
-	result = primeInterest;
-	return result;
-}
+  if (ownInterestRate > 0) {
+    return ownInterestRate;
+  }
+  if (primeRate == null) {
+    return localize("Check Internet Connection");
+  }
+  else {
+    result = primeInterest;
+    return result;
+  }
 }
 var finalInterestRate = calculatedInterestRate();
 
@@ -83,12 +84,12 @@ optionsLocaleDate = {
 }
 
 // Distinction between 1 and several days for notes
-function localizeDay(){
+function localizeDay() {
   if (delayInDays == 1) {
-    return `${localize("Day")} (${delayStart.toLocaleDateString("de-De",optionsLocaleDate)})`;
+    return `${localize("Day")} (${delayStart.toLocaleDateString("de-De", optionsLocaleDate)})`;
   }
   else {
-    return `${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De",optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De",optionsLocaleDate)})`;
+    return `${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De", optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De", optionsLocaleDate)})`;
   }
 }
 
