@@ -3,7 +3,8 @@
 "Delay End" = "Zahlungseingang";
 "OriginalClaimAmount" = "Ursprüngliche Forderung";
 "Interest rate with percent" = "Prozentpunkte über Basiszinssatz";
-"days" = "Tage";
+"Days" = "Tage";
+"Day" = "Tag";
 "InterestRate" = "Zinssatz";
 "DelayPeriod" = "Verzugsdauer";
 "from" = "vom";

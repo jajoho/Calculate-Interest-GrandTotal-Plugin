@@ -3,7 +3,8 @@
 "Delay End" = "Date of payment";
 "OriginalClaimAmount" = "Original claim amount";
 "Interest rate with percent" = "Percentage points above prime rate";
-"days" = "days";
+"Days" = "days";
+"Day" = "day";
 "InterestRate" = "Interest rate";
 "DelayPeriod" = "Delay period";
 "from" = "from";

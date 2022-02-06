@@ -82,6 +82,15 @@ optionsLocaleDate = {
   day: "numeric",
 }
 
+function localizeDay(){
+  if (delayInDays == 1) {
+    return `${localize("Day")} (${delayStart.toLocaleDateString("de-De",optionsLocaleDate)})`;
+  }
+  else {
+    return `${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De",optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De",optionsLocaleDate)})`;
+  }
+}
+
 // Update unit price and notes
 update();
 
@@ -94,9 +103,7 @@ function update() {
 
   aNotes = removePrevious(aNotes);
 
-  aLine = `${localize("DelayPeriod")}: ${new Intl.NumberFormat('de-DE').format(delayInDays)} ${localize("days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De",optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De",optionsLocaleDate
-  )})\n${localize("OriginalClaimAmount")}: ${currency} ${formattedNumber(originalClaimAmount
-  )}\n${localize("InterestRate")}: ${formattedNumber(finalInterestRate)} %`;
+  aLine = `${localize("DelayPeriod")}: ${new Intl.NumberFormat('de-DE').format(delayInDays)} ${localizeDay()}\n${localize("OriginalClaimAmount")}: ${currency} ${formattedNumber(originalClaimAmount)}\n${localize("InterestRate")}: ${formattedNumber(finalInterestRate)} %`;
 
   aLine = "<i>" + aLine + "</i>";
 
