@@ -20,7 +20,7 @@ Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 #### Berechnungsmethode
 
 - Die Zinsen werden nach der Effektivzinsmethode ([ICMA-Methode, früher ISMA-Methode)](https://de.wikipedia.org/wiki/Zinsberechnungsmethode#act/act_–_tagesgenaue_oder_Effektivzinsmethode_(ICMA-Methode,_früher_ISMA-Methode)) berechnet.
-- Der erste und der letzte Tag werden gezählt.([§§ 187](https://www.gesetze-im-internet.de/bgb/__187.html), [188 BGB](https://www.gesetze-im-internet.de/bgb/__188.html)).
+- Der erste und der letzte Tag werden gezählt ([§§ 187](https://www.gesetze-im-internet.de/bgb/__187.html), [188 BGB](https://www.gesetze-im-internet.de/bgb/__188.html)).
 - Der Zinssatz wird anhand des aktuellen Basiszinssatzes von der Bundesbank berechnet.
 - Die Berechnung ist nicht genau, wenn die Zinsenen über mehrere Jahre berechnet werden und eines der Jahre ein Schaltjahr ist (issue [#3](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/issues/3)).
 - Die Berechnung funktioniert nicht, wenn sich der Basiszinssatz während des Verzugszeitraums ändern sollte. Eine Änderung gab es aber schon [seit einiger 2016 nicht mehr](https://www.bundesbank.de/dynamic/action/de/statistiken/zeitreihen-datenbanken/zeitreihen-datenbank/723452/723452?listId=www_s510_mb02&tsId=BBK01.SU0115&dateSelect=2022).
