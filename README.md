@@ -30,10 +30,6 @@ Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 Mehr Informationen zu Plugins gibt es hier: [GrandTotal-Plugins](https://github.com/mediaatelier/GrandTotal-Plugins). Und die Hilfe von [GrandTotal hier](https://www.mediaatelier.com/GrandTotal7/help/?lang=de).
 Dieses Plugins basiert auf dem Area und Volume Plugin.
 
-#### Haftungsausschluss
-
-Ich übernehme keine Haftung für die Richtigkeit und Vollständigkeit des Plugins und der bereitgestellten Informationen.
-Haftungsansprüche gegen mich, die sich auf Schäden materieller oder ideeller Art beziehen, welche durch die Nutzung des Plugins entstanden sind, sind ausgeschlossen, sofern kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt.
 
 ## English: Calculate interest rate – GrandTotal Plugin
 
@@ -60,8 +56,3 @@ A plugin for GrandTotal to calculate the default interest.
 
 For more information see [GrandTotal-Plugins](https://github.com/mediaatelier/GrandTotal-Plugins) and the [GrandTotal help page](https://www.mediaatelier.com/GrandTotal7/help/?lang=en).
 This plugin is based on the Area and Volume Plugin.
-
-#### Disclaimer
-
-I assume no liability for the correctness and completeness of the plugin and the information provided.
-Liability claims against me, which refer to damages of material or immaterial nature arising from the use of the plugin are excluded, unless a demonstrably intentional or grossly negligent fault.
