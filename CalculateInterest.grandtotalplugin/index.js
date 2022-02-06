@@ -31,8 +31,9 @@ function getXML() {
   }
 }}
 
-var primRate = getXML();
-var primRate = parseFloat(primRate);
+var primeRate = getXML();
+var primeRate = parseFloat(primeRate);
+var primeInterest = parseInt(interestRate) + primeRate;
 
 // Check if year is leap (366 days) year or regular year (365 days) for interest calculation
 function daysOfYear(year) {
@@ -58,18 +59,19 @@ function calculatedInterestRate() {
 	if (ownInterestRate > 0) {
 		return ownInterestRate;
 	}
-	if (primRate == null) {
+	if (primeRate == null) {
 		return localize("Check Internet Connection");
 	}
 	else {
-	result = parseInt(interestRate) + primRate;
+	result = primeInterest;
 	return result;
 }
-} 
+}
+var finalInterestRate = calculatedInterestRate();
 
 // Calculate interest and round the result of the calculation
 var sumInterest =
-  ((originalClaimAmount * calculatedInterestRate()) /
+  ((originalClaimAmount * finalInterestRate) /
     100 /
     daysOfYear(currentYear)) *
   delayInDays;
@@ -95,7 +97,7 @@ function update() {
 
   aLine = `${localize("DelayPeriod")}: ${delayInDays} ${localize("days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De",optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De",optionsLocaleDate
   )})\n${localize("OriginalClaimAmount")}: ${currency} ${formattedNumber(originalClaimAmount
-  )}\n${localize("InterestRate")}: ${formattedNumber(calculatedInterestRate())} %`;
+  )}\n${localize("InterestRate")}: ${formattedNumber(finalInterestRate)} %`;
 
   aLine = "<i>" + aLine + "</i>";
 
