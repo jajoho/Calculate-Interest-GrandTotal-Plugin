@@ -1,10 +1,12 @@
 "CalculateInterest" = "Verzugszinsen berechnen";
 "Delay Start" = "Erster Verzugstag";
 "Delay End" = "Zahlungseingang";
-"Original claim amount" = "Ursprüngliche Forderung";
+"OriginalClaimAmount" = "Ursprüngliche Forderung";
 "Interest rate with percent" = "Prozentpunkte über Basiszinssatz";
-"Days" = "Tage";
-"Interest rate" = "Zinssatz";
-"Delay Period" = "Verzugsdauer";
+"days" = "Tage";
+"InterestRate" = "Zinssatz";
+"DelayPeriod" = "Verzugsdauer";
 "from" = "vom";
 "until" = "bis zum";
+"Check Internet Connection" = "Internet Verbindung prüfen, um den Basiszinssatz abzurufen.";
+"Own interest rate" = "Eigener Zinssatz";
