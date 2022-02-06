@@ -3,7 +3,7 @@
 // 	Keys:
 // 	delayStart -> Delay period start date (date, formatted)
 // 	delayEnd -> Delay period end date (date, formatted)
-// 	outstandingDebt -> Outstanding debt (number)
+// 	originalClaimAmount -> Outstanding debt (number)
 // 	interestRate -> Interest rate (number)
 //	ownInterestRate -> Own interest rate, if the automatically calculated one is to be overwritten (number)
 
@@ -93,7 +93,7 @@ function update() {
 
   aNotes = removePrevious(aNotes);
 
-  aLine = `${localize("DelayPeriod")}: ${new Intl.NumberFormat("de-DE").format(delayInDays)} ${localizeDay()}\n${localize("OriginalClaimAmount")}: ${currency} ${formattedNumber(originalClaimAmount)}\n${localize("InterestRate")}: ${formattedNumber(finalInterestRate)} %`;
+  aLine = `${localize("DelayPeriod")}: ${new Intl.NumberFormat("de-DE").format(delayInDays)} ${localizeDay()}\n${localize("OriginalClaimAmount")}: ${currency} ${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', currencyDisplay: 'code'}).format(originalClaimAmount)}\n${localize("InterestRate")}: ${formattedNumber(finalInterestRate)} %`;
 
   aLine = "<i>" + aLine + "</i>";
 
