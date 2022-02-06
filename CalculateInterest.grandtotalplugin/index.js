@@ -10,7 +10,6 @@
 //
 
 // Function to fetch via API the prime rate from bundesbank.de
-getXML();
 function getXML() {
   const URL = "https://api.statistiken.bundesbank.de/rest/data/";
   const PATH = "BBK01/SU0115?detail=dataonly&lastNObservations=1";
@@ -95,7 +94,7 @@ function update() {
 
   aNotes = removePrevious(aNotes);
 
-  aLine = `${localize("DelayPeriod")}: ${delayInDays} ${localize("days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De",optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De",optionsLocaleDate
+  aLine = `${localize("DelayPeriod")}: ${new Intl.NumberFormat('de-DE').format(delayInDays)} ${localize("days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De",optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De",optionsLocaleDate
   )})\n${localize("OriginalClaimAmount")}: ${currency} ${formattedNumber(originalClaimAmount
   )}\n${localize("InterestRate")}: ${formattedNumber(finalInterestRate)} %`;
 
