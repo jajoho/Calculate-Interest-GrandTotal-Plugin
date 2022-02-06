@@ -10,6 +10,7 @@
 //
 
 // Function to fetch via API the prime rate from bundesbank.de
+getXML();
 function getXML() {
   const URL = "https://api.statistiken.bundesbank.de/rest/data/";
   const PATH = "BBK01/SU0115?detail=dataonly&lastNObservations=1";
@@ -29,6 +30,9 @@ function getXML() {
     result = string.match(regExp);
   }
 }}
+
+var primRate = getXML();
+var primRate = parseFloat(primRate);
 
 // Check if year is leap (366 days) year or regular year (365 days) for interest calculation
 function daysOfYear(year) {
@@ -54,11 +58,11 @@ function calculatedInterestRate() {
 	if (ownInterestRate > 0) {
 		return ownInterestRate;
 	}
-	if (getXML() == null) {
+	if (primRate == null) {
 		return localize("Check Internet Connection");
 	}
 	else {
-	result = parseInt(interestRate) + +getXML();
+	result = parseInt(interestRate) + primRate;
 	return result;
 }
 } 
