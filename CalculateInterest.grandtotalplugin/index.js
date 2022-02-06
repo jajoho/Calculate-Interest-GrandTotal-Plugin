@@ -65,9 +65,7 @@ function calculatedInterestRate() {
 var finalInterestRate = calculatedInterestRate();
 
 // Calculate interest and round the result of the calculation
-var sumInterest =
-  ((originalClaimAmount * finalInterestRate) / 100 / daysOfYear(currentYear)) *
-  delayInDays;
+var sumInterest = ((originalClaimAmount * finalInterestRate) / 100 / daysOfYear(currentYear)) * delayInDays;
 var interestRounded = Math.round((sumInterest + Number.EPSILON) * 100) / 100;
 
 optionsLocaleDate = {
