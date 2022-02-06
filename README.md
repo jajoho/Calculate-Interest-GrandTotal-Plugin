@@ -1,6 +1,7 @@
 # Calculate interest rate – GrandTotal Plugin
 
 [![CodeQL](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/actions/workflows/codeql-analysis.yml)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg?style=flat&logo=appveyor)](http://creativecommons.org/publicdomain/zero/1.0/)
 
 [English translation below](#english-calculate-interest-rate--grandtotal-plugin).
 
