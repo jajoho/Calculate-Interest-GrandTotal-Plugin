@@ -11,9 +11,11 @@
 
 // Function to fetch via API the prime rate from bundesbank.de
 function getXML() {
+  const URL = "https://api.statistiken.bundesbank.de/rest/data/";
+  const PATH = "BBK01/SU0115?detail=dataonly&lastNObservations=1";
   string = loadURL(
     "GET",
-    "https://api.statistiken.bundesbank.de/rest/data/BBK01/SU0115?detail=dataonly&lastNObservations=1"
+    URL + PATH
   );
   if (string.length == 0) {
     return null;
