@@ -13,14 +13,10 @@
 function getXML() {
   const URL = "https://api.statistiken.bundesbank.de/rest/data/";
   const PATH = "BBK01/SU0115?detail=dataonly&lastNObservations=1";
-  string = loadURL(
-    "GET",
-    URL + PATH
-  );
+  string = loadURL("GET", URL + PATH);
   if (string.length == 0) {
     return null;
-  }
-  else {
+  } else {
     getString();
     return result;
 
@@ -61,8 +57,7 @@ function calculatedInterestRate() {
   }
   if (primeRate == null) {
     return localize("Check Internet Connection");
-  }
-  else {
+  } else {
     result = primeInterest;
     return result;
   }
@@ -71,9 +66,7 @@ var finalInterestRate = calculatedInterestRate();
 
 // Calculate interest and round the result of the calculation
 var sumInterest =
-  ((originalClaimAmount * finalInterestRate) /
-    100 /
-    daysOfYear(currentYear)) *
+  ((originalClaimAmount * finalInterestRate) / 100 / daysOfYear(currentYear)) *
   delayInDays;
 var interestRounded = Math.round((sumInterest + Number.EPSILON) * 100) / 100;
 
@@ -81,14 +74,13 @@ optionsLocaleDate = {
   year: "numeric",
   month: "short",
   day: "numeric",
-}
+};
 
 // Distinction between 1 and several days for notes
 function localizeDay() {
   if (delayInDays == 1) {
     return `${localize("Day")} (${delayStart.toLocaleDateString("de-De", optionsLocaleDate)})`;
-  }
-  else {
+  } else {
     return `${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De", optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De", optionsLocaleDate)})`;
   }
 }
@@ -105,7 +97,7 @@ function update() {
 
   aNotes = removePrevious(aNotes);
 
-  aLine = `${localize("DelayPeriod")}: ${new Intl.NumberFormat('de-DE').format(delayInDays)} ${localizeDay()}\n${localize("OriginalClaimAmount")}: ${currency} ${formattedNumber(originalClaimAmount)}\n${localize("InterestRate")}: ${formattedNumber(finalInterestRate)} %`;
+  aLine = `${localize("DelayPeriod")}: ${new Intl.NumberFormat("de-DE").format(delayInDays)} ${localizeDay()}\n${localize("OriginalClaimAmount")}: ${currency} ${formattedNumber(originalClaimAmount)}\n${localize("InterestRate")}: ${formattedNumber(finalInterestRate)} %`;
 
   aLine = "<i>" + aLine + "</i>";
 
