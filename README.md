@@ -37,7 +37,7 @@ Haftungsansprüche gegen mich, die sich auf Schäden materieller oder ideeller A
 
 ## English: Calculate interest rate – GrandTotal Plugin
 
-A plugin for GranTotal to calculate interest rate.
+A plugin for GrandTotal to calculate the default interest.
 
 ### Hot to install and use it?
 
