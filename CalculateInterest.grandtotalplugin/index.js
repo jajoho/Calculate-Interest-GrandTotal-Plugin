@@ -80,7 +80,7 @@ optionsLocaleDate = {
   year: "numeric",
   month: "short",
   day: "numeric",
-};
+}
 
 // Update unit price and notes
 update();
