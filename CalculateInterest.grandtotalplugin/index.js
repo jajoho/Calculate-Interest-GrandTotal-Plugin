@@ -2,8 +2,8 @@
 	Return a JSON with the values you like to replace
 	
 	Keys:
-	delayEnd -> Delay period end date (date, formatted)
 	delayStart -> Delay period start date (date, formatted)
+	delayEnd -> Delay period end date (date, formatted)
 	outstandingDebt -> Outstanding debt (number)
 	interestRate -> Interest rate (number)
 
@@ -36,23 +36,31 @@ function isLeapYear(year) {
 var currentTime = new Date();
 var currentYear = currentTime.getFullYear();
 
+///Calculate delay period in number of days
+delayEnd = new Date(delayEnd);
+delayStart = new Date(delayStart);
 
+// Math.round to still have delayInDays without decimals (can occur when date strings are not unified)
+var delayInDays = Math.round(((delayEnd - delayStart) / (1000 * 3600 * 24)) + 1); // +1 to count first and last day
+
+// Calculate final interest rate with interest rate entered by user and prime rate from bundesbank.de 
+var calculatedInterestRate = parseInt(interestRate) + +getXML();
+
+// Calculate interest and round the result of the calculation
+var sumInterest = originalClaimAmount * calculatedInterestRate / 100 / daysOfYear(currentYear) * delayInDays;
+var interestRounded = Math.round((sumInterest + Number.EPSILON) * 100) / 100;
+
+optionsLocaleDate = {
+	year: "numeric",
+	month: "short",
+	day: "numeric"
+};
+
+// Update unit price and notes
 update();
 
 function update() {
 	var result = {};
-
-	///Calculate delay period in number of days
-	delayEnd = new Date(delayEnd);
-	delayStart = new Date(delayStart);
-	var delayInDays = ((delayEnd - delayStart) / (1000 * 3600 * 24)) + 1; // +1 to count first and last day
-
-	// Calculate final interest rate with interest rate entered by user and prime rate from bundesbank.de 
-	var calculatedInterestRate = parseInt(interestRate) + +getXML();
-
-	// Calculate interest and round the result of the calculation
-	var sumInterest = originalClaimAmount * calculatedInterestRate / 100 / daysOfYear(currentYear) * delayInDays;
-	var interestRounded = Math.round((sumInterest + Number.EPSILON) * 100) / 100;
 
 	// Create and change notes and provide GrandTotal interest sum for the document
 	var aNotes = valueForKeyPath("notes");
@@ -61,15 +69,7 @@ function update() {
 
 	aNotes = removePrevious(aNotes);
 
-	optionsLocaleDate = {
-		year: 'numeric',
-		month: 'short',
-		day: 'numeric'
-	};
-
-
-	aLine = `${localize("Delay Period")}: ${delayInDays} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString('de-De', optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString('de-De', optionsLocaleDate)})\n${localize("Original claim amount")}: ${currency} ${formattedNumber(originalClaimAmount)}\n${localize("Interest rate")}: ${formattedNumber(calculatedInterestRate)} %`;
-
+	aLine = `${localize("Delay Period")}: ${delayInDays} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De", optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De", optionsLocaleDate)})\n${localize("Original claim amount")}: ${currency} ${formattedNumber(originalClaimAmount)}\n${localize("Interest rate")}: ${formattedNumber(calculatedInterestRate)} %`;
 
 	aLine = "<i>" + aLine + "</i>";
 
@@ -78,12 +78,11 @@ function update() {
 	else
 		aNewNotes = aLine;
 
-	result["notes"] = aNewNotes;
-	result["unitPrice"] = interestRounded;
+	result.notes = aNewNotes;
+	result.unitPrice = interestRounded;
 
 	return result;
 }
-
 
 function removePrevious(s) {
 	var regExp = /(\<i)\s*[^\>]*\>([^\<]*\<\/i>)?/gi;
