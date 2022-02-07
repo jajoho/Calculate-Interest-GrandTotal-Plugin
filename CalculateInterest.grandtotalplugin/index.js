@@ -54,10 +54,11 @@ var interestRate = calculatedInterestRate();
 // Calculate interest
 var sumInterest = ((originalClaimAmount * interestRate) / 100 / actEZB) * delayInDays;
 
+// Options for date format
 optionsLocaleDate = {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
+  year: "numeric", // "numeric" und "2-digit"
+  month: "short", // "numeric", "2-digit", "narrow", "short" und "long"
+  day: "numeric", // "numeric" und "2-digit"
 };
 
 // Distinction between 1 and several days for notes
@@ -66,9 +67,9 @@ function localizeDay() {
     return `${localize("ErrorDayCount")}`;
   }
   if (delayInDays == 1) {
-    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Day")} (${delayStart.toLocaleDateString(optionsLocaleDate)})`;
+    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Day")} (${delayStart.toLocaleDateString(undefined, optionsLocaleDate)})`;
   } else {
-    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString(optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString(optionsLocaleDate)})`;
+    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString(undefined, optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString(undefined, optionsLocaleDate)})`;
   }
 }
 
