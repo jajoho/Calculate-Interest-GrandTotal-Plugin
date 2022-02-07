@@ -60,7 +60,7 @@
 	<key>copyright</key>
 	<string>CC0 v1.0 2022 Jatayu Holznagel</string>
 	<key>CFBundleVersion</key>
-	<string>2.5</string>
+	<string>2.5.1</string>
 	<key>width</key>
 	<real>500</real>
 	<key>GrandTotalMinimumVersion</key>
