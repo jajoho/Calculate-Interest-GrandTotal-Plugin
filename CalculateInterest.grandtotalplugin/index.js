@@ -7,6 +7,9 @@
 // 	interestRate -> Interest rate (number)
 //	ownInterestRate -> Own interest rate, if the automatically calculated one is to be overwritten (number)
 
+// Interest rate calculated with actual/360 method (EZB): https://en.wikipedia.org/wiki/Day_count_convention#Actual/360
+var actEZB = parseInt(360.00);
+
 // Function to fetch via API the prime rate from bundesbank.de
 function getXML() {
   const URL = "https://api.statistiken.bundesbank.de/rest/data/";
@@ -29,24 +32,12 @@ var primeRate = getXML();
 var primeRate = parseFloat(primeRate);
 var primeInterest = interestRate + primeRate;
 
-// Check if year is leap (366 days) year or regular year (365 days) for interest calculation
-function daysOfYear(year) {
-  return isLeapYear(year) ? 366 : 365;
-}
-
-function isLeapYear(year) {
-  return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
-}
-
-var currentTime = new Date();
-var currentYear = currentTime.getFullYear();
-
 ///Calculate delay period in number of days
 delayEnd = new Date(delayEnd);
 delayStart = new Date(delayStart);
 
-// Math.round to still have delayInDays without decimals (can occur when date strings are not unified)
-var delayInDays = Math.round((delayEnd - delayStart) / (1000 * 3600 * 24) + 1); // +1 to count first and last day
+// Calculate difference between start and end of default period
+var delayInDays = ((delayEnd - delayStart) / (1000 * 3600 * 24)) + 1; // +1 to count first and last day
 
 // Calculate final interest rate with own interest rate or prime rate from bundesbank.de
 function calculatedInterestRate() {
@@ -58,11 +49,10 @@ function calculatedInterestRate() {
     return result;
   }
 }
-var finalInterestRate = calculatedInterestRate();
+var interestRate = calculatedInterestRate();
 
-// Calculate interest and round the result of the calculation
-var sumInterest = ((originalClaimAmount * finalInterestRate) / 100 / daysOfYear(currentYear)) * delayInDays;
-var interestRounded = Math.round((sumInterest + Number.EPSILON) * 100) / 100;
+// Calculate interest
+var sumInterest = ((originalClaimAmount * interestRate) / 100 / actEZB) * delayInDays;
 
 optionsLocaleDate = {
   year: "numeric",
@@ -72,10 +62,13 @@ optionsLocaleDate = {
 
 // Distinction between 1 and several days for notes
 function localizeDay() {
+  if (delayInDays < 0) {
+    return `${localize("ErrorDayCount")}`;
+    }
   if (delayInDays == 1) {
-    return `${localize("Day")} (${delayStart.toLocaleDateString("de-De", optionsLocaleDate)})`;
+    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat("de-DE").format(delayInDays)} ${localize("Day")} (${delayStart.toLocaleDateString("de-De", optionsLocaleDate)})`;
   } else {
-    return `${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De", optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De", optionsLocaleDate)})`;
+    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat("de-DE").format(delayInDays)} ${localize("Day")} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De", optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De", optionsLocaleDate)})`;
   }
 }
 
@@ -91,7 +84,7 @@ function update() {
 
   aNotes = removePrevious(aNotes);
 
-  aLine = `${localize("DelayPeriod")}: ${new Intl.NumberFormat("de-DE").format(delayInDays)} ${localizeDay()}\n${localize("OriginalClaimAmount")}: ${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', currencyDisplay: 'code'}).format(originalClaimAmount)}\n${localize("InterestRate")}: ${formattedNumber(finalInterestRate)} %`;
+  aLine = `${localizeDay()}\n${localize("OriginalClaimAmount")}: ${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', currencyDisplay: 'code'}).format(originalClaimAmount)}\n${localize("InterestRate")}: ${new Intl.NumberFormat("de-DE").format((interestRate))} %`;
 
   aLine = "<i>" + aLine + "</i>";
 
@@ -99,7 +92,7 @@ function update() {
   else aNewNotes = aLine;
 
   result.notes = aNewNotes;
-  result.unitPrice = interestRounded;
+  result.unitPrice = parseFloat(sumInterest);
 
   return result;
 }

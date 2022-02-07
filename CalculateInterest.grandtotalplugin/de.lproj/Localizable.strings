@@ -11,3 +11,4 @@
 "until" = "bis zum";
 "Check Internet Connection" = "Internet Verbindung prüfen, um den Basiszinssatz abzurufen.";
 "Own interest rate" = "Eigener Zinssatz";
+"ErrorDayCount" = "Fehler: Anzahl der Tage muss eine positive Zahl sein";
