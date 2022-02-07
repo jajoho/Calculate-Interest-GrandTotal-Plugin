@@ -3,7 +3,7 @@
 [![CodeQL](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/actions/workflows/codeql-analysis.yml)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg?style=flat&logo=appveyor)](./LICENSE)
 
-[English translation below](#english-calculate-interest-rate--grandtotal-plugin).
+*[English translation below](#english-calculate-interest-rate--grandtotal-plugin)*
 
 ## Deutsch: Verzugszinsen berechnen – GrandTotal Plugin
 
@@ -20,10 +20,9 @@ Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 
 #### Berechnungsmethode
 
-- Die Zinsen werden nach der Effektivzinsmethode ([ICMA-Methode, früher ISMA-Methode)](https://de.wikipedia.org/wiki/Zinsberechnungsmethode#act/act_–_tagesgenaue_oder_Effektivzinsmethode_(ICMA-Methode,_früher_ISMA-Methode)) berechnet.
+- Die Zinsen werden nach der Effektivzinsmethode ([act/360 – Eurozinsmethode, französische Zinsmethode](https://de.wikipedia.org/wiki/Zinsberechnungsmethode#act/360_–_Eurozinsmethode,_französische_Zinsmethode) berechnet.
 - Der erste und der letzte Tag werden gezählt ([§§ 187](https://www.gesetze-im-internet.de/bgb/__187.html), [188 BGB](https://www.gesetze-im-internet.de/bgb/__188.html)).
-- Der Zinssatz wird anhand des aktuellen Basiszinssatzes von der Bundesbank berechnet.
-- Die Berechnung ist nicht genau, wenn die Zinsenen über mehrere Jahre berechnet werden und eines der Jahre ein Schaltjahr ist (issue [#3](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/issues/3)).
+- Der Zinssatz wird anhand des aktuellen Basiszinssatzes von der Bundesbank berechnet, wenn kein abweichender Zinssatz angegeben wird.
 - Die Berechnung funktioniert nicht, wenn sich der Basiszinssatz während des Verzugszeitraums ändern sollte. Eine Änderung gab es aber schon [seit 2016 nicht mehr](https://www.bundesbank.de/dynamic/action/de/statistiken/zeitreihen-datenbanken/zeitreihen-datenbank/723452/723452?listId=www_s510_mb02&tsId=BBK01.SU0115&dateSelect=2022). Hierfür gibt es aber die Möglichkeit mehrere Zeilen anzulegen um den Zeitraum mit verschiedenen Zinssätzen aufzuteilen.
 
 #### Mehr GrandTotal Plugins
@@ -47,11 +46,10 @@ A plugin for GrandTotal to calculate the default interest.
 
 #### Calculation method
 
-- The interest rate is calculated using the effective interest method ([ICMA (ISMA)-Rule (act/act)](https://en.wikipedia.org/wiki/Day_count_convention#Actual_methods)).
+- The interest rate is calculated using the effective interest method ([actual/360 (EZB)](https://en.wikipedia.org/wiki/Day_count_convention#Actual/360)).
 - The first and the last day are counted ([§§ 187](https://www.gesetze-im-internet.de/bgb/__187.html), [188 BGB](https://www.gesetze-im-internet.de/bgb/__188.html)).
-- The interest rate is calculated using the current prime rate from the Bundesbank.
-- The calculation is not accurate if the interest is calculated over several years and one of the years is a leap year (issue [#3](https://github.com/jajoho/Calculate-Interest-GrandTotal-Plugin/issues/3)).
-- The calculation does not work if the prime rate should change during the default period. However, there has [not been a change since some 2016](https://www.bundesbank.de/dynamic/action/en/statistics/time-series-databases/time-series-databases/745582/745582?listId=www_s510_mb02&tsId=BBK01.SU0115&dateSelect=2022).
+- The interest rate is calculated using the current prime rate from the Bundesbank if no other interest rate is specified.
+- The calculation does not work if the prime rate should change during the default period. However, there has [not been a change since some 2016](https://www.bundesbank.de/dynamic/action/en/statistics/time-series-databases/time-series-databases/745582/745582?listId=www_s510_mb02&tsId=BBK01.SU0115&dateSelect=2022). However, there is a possibility to create several lines to divide the period with different interest rates.
 
 #### Offical Plugin repository
 
