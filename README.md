@@ -16,7 +16,7 @@ Ein Plugin für GrandTotal, um die Verzugszinsen zu berechnen.
 3. Auf das Zahnradsymbol klicken und auf `Verzugszinsen berechnen`.
 4. Eigene Werte eintragen (wenn ein eigener Zinssatz angegeben wird, überschreibt dieser den Zinssatz über dem Basiszins).
 
-![Verzugszinsen berechnen](https://user-images.githubusercontent.com/15175599/152641374-c7db59d9-2bf1-45eb-ac41-897b7c4fdaa6.png)
+![Calculate Interest DE](https://user-images.githubusercontent.com/15175599/152795901-5580dc54-0b18-4aac-9740-6503bc979a70.png)
 
 #### Berechnungsmethode
 
@@ -42,7 +42,7 @@ A plugin for GrandTotal to calculate the default interest.
 3. Click on the wheeel icon and on `Calculate interest`.
 4. Enter your own values (if your own interest rate is specified, it will overwrite the interest rate above the prime rate).
 
-![Calculate Interest Rate](https://user-images.githubusercontent.com/15175599/152641465-27db9988-ff97-467b-8806-22ad7a6018de.png)
+![Calculate Interest EN](https://user-images.githubusercontent.com/15175599/152795877-f8ccb255-2e0e-4c7a-a14d-88fc43bc0552.png)
 
 #### Calculation method
 
