@@ -3,3 +3,4 @@
 .vscode/extensions.json
 .trunk/trunk.yaml
 .trunk/.gitignore
+.vscode/launch.json
