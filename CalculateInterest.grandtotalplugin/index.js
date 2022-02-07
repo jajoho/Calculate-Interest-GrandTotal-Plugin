@@ -92,7 +92,7 @@ function update() {
   else aNewNotes = aLine;
 
   result.notes = aNewNotes;
-  result.unitPrice = Math.round(sumInterest * 100) / 100;
+  result.unitPrice = Math.round((sumInterest + Number.EPSILON) * 100) / 100;
 
   return result;
 }
