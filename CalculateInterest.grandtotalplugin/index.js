@@ -66,9 +66,9 @@ function localizeDay() {
     return `${localize("ErrorDayCount")}`;
   }
   if (delayInDays == 1) {
-    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat("de-DE").format(delayInDays)} ${localize("Day")} (${delayStart.toLocaleDateString("de-De", optionsLocaleDate)})`;
+    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Day")} (${delayStart.toLocaleDateString(optionsLocaleDate)})`;
   } else {
-    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat("de-DE").format(delayInDays)} ${localize("Day")} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString("de-De", optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString("de-De", optionsLocaleDate)})`;
+    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString(optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString(optionsLocaleDate)})`;
   }
 }
 
@@ -84,7 +84,7 @@ function update() {
 
   aNotes = removePrevious(aNotes);
 
-  aLine = `${localizeDay()}\n${localize("OriginalClaimAmount")}: ${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', currencyDisplay: 'code' }).format(originalClaimAmount)}\n${localize("InterestRate")}: ${new Intl.NumberFormat("de-DE").format((interestRate))} %`;
+  aLine = `${localizeDay()}\n${localize("OriginalClaimAmount")}: ${new Intl.NumberFormat('lookup', { style: 'currency', currency: 'EUR', currencyDisplay: 'code' }).format(originalClaimAmount)}\n${localize("InterestRate")}: ${new Intl.NumberFormat("de-DE").format((interestRate))} %`;
 
   aLine = "<i>" + aLine + "</i>";
 
@@ -92,7 +92,7 @@ function update() {
   else aNewNotes = aLine;
 
   result.notes = aNewNotes;
-  result.unitPrice = parseFloat(sumInterest);
+  result.unitPrice = Math.round(sumInterest * 100) / 100;
 
   return result;
 }
