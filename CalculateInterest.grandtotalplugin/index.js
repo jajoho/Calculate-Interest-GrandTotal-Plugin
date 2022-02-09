@@ -10,11 +10,13 @@
 // Interest rate calculated with actual/360 method (EZB): https://en.wikipedia.org/wiki/Day_count_convention#Actual/360
 var actEZB = 360.00;
 
-// Function to fetch via API the prime rate from bundesbank.de
+// Function to fetch via API the prime rate from Bundesbank (documentation: https://api.statistiken.bundesbank.de/doc/index.html)
 function getXML() {
   const URL = "https://api.statistiken.bundesbank.de/rest/data/";
-  const PATH = "BBK01/SU0115?detail=dataonly&lastNObservations=1";
-  string = loadURL("GET", URL + PATH);
+  const flowRef = "BBK01";
+  const key = "SU0115";
+  const parameters = "?detail=dataonly&lastNObservations=1"
+  string = loadURL("GET", URL + flowRef + "/" + key + parameters);
   if (!string.startsWith("<")) {
     return log(localize("Check Internet Connection"));
   } else {
