@@ -8,7 +8,7 @@
 //	ownInterestRate -> Own interest rate, if the automatically calculated one is to be overwritten (number)
 
 // Interest rate calculated with actual/360 method (EZB): https://en.wikipedia.org/wiki/Day_count_convention#Actual/360
-var actEZB = parseInt(360.00);
+var actEZB = 360.00;
 
 // Function to fetch via API the prime rate from bundesbank.de
 function getXML() {
@@ -22,8 +22,9 @@ function getXML() {
     return result;
 
     function getString() {
-      const regExp = /-[0-9]*\.[0-9]+/m;
-      result = string.match(regExp);
+      const regExp = /(?:<generic:ObsValue value=")([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?/i;
+      search = string.match(regExp);
+      result = search[1];
     }
   }
 }
@@ -54,10 +55,11 @@ var interestRate = calculatedInterestRate();
 // Calculate interest
 var sumInterest = ((originalClaimAmount * interestRate) / 100 / actEZB) * delayInDays;
 
+// Options for date format
 optionsLocaleDate = {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
+  year: "numeric", // "numeric" und "2-digit"
+  month: "short", // "numeric", "2-digit", "narrow", "short" und "long"
+  day: "numeric", // "numeric" und "2-digit"
 };
 
 // Distinction between 1 and several days for notes
@@ -66,9 +68,9 @@ function localizeDay() {
     return `${localize("ErrorDayCount")}`;
   }
   if (delayInDays == 1) {
-    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Day")} (${delayStart.toLocaleDateString(optionsLocaleDate)})`;
+    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Day")} (${delayStart.toLocaleDateString(undefined, optionsLocaleDate)})`;
   } else {
-    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString(optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString(optionsLocaleDate)})`;
+    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString(undefined, optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString(undefined, optionsLocaleDate)})`;
   }
 }
 
