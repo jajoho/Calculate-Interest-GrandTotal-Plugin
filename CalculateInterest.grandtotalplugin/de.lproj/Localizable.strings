@@ -1,7 +1,7 @@
 "CalculateInterest" = "Verzugszinsen berechnen";
 "Delay Start" = "Erster Verzugstag";
 "Delay End" = "Zahlungseingang";
-"OriginalClaimAmount" = "Ursprüngliche Forderung";
+"OriginalClaim" = "Ursprüngliche Forderung";
 "Interest rate with percent" = "Prozentpunkte über Basiszinssatz";
 "Days" = "Tage";
 "Day" = "Tag";

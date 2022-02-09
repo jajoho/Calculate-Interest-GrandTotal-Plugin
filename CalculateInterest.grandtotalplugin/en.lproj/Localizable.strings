@@ -1,7 +1,7 @@
 "CalculateInterest" = "Calculate interest";
 "Delay Start" = "First day after due date";
 "Delay End" = "Date of payment";
-"OriginalClaimAmount" = "Original claim amount";
+"OriginalClaim" = "Original claim";
 "Interest rate with percent" = "Percentage points above prime rate";
 "Days" = "days";
 "Day" = "day";
