@@ -8,7 +8,7 @@
 //	ownInterestRate -> Own interest rate, if the automatically calculated one is to be overwritten (number)
 
 // Interest rate calculated with actual/360 method (EZB): https://en.wikipedia.org/wiki/Day_count_convention#Actual/360
-var actEZB = parseInt(360.00);
+var actEZB = 360.00;
 
 // Function to fetch via API the prime rate from bundesbank.de
 function getXML() {
