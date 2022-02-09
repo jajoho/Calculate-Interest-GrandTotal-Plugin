@@ -22,8 +22,9 @@ function getXML() {
     return result;
 
     function getString() {
-      const regExp = /-[0-9]*\.[0-9]+/m;
-      result = string.match(regExp);
+      const regExp = /(?:<generic:ObsValue value=")([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?/i;
+      search = string.match(regExp);
+      result = search[1];
     }
   }
 }
