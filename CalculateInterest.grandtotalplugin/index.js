@@ -8,14 +8,14 @@
 //	ownInterestRate -> Own interest rate, if the automatically calculated one is to be overwritten (number)
 
 // Interest rate calculated with actual/360 method (EZB): https://en.wikipedia.org/wiki/Day_count_convention#Actual/360
-var actEZB = 360.00;
+var actEZB = 360.0;
 
 // Function to fetch via API the prime rate from Bundesbank (documentation: https://api.statistiken.bundesbank.de/doc/index.html)
 function getXML() {
   const URL = "https://api.statistiken.bundesbank.de/rest/data/";
   const flowRef = "BBK01";
   const key = "SU0115";
-  const parameters = "?detail=dataonly&lastNObservations=1"
+  const parameters = "?detail=dataonly&lastNObservations=1";
   string = loadURL("GET", URL + flowRef + "/" + key + parameters);
   if (!string.startsWith("<")) {
     return log(localize("Check Internet Connection"));
@@ -24,7 +24,8 @@ function getXML() {
     return result;
 
     function getString() {
-      const regExp = /(?:<generic:ObsValue value=")([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?/i;
+      const regExp =
+        /(?:<generic:ObsValue value=")([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?/i;
       search = string.match(regExp);
       result = search[1];
     }
@@ -40,14 +41,13 @@ delayEnd = new Date(delayEnd);
 delayStart = new Date(delayStart);
 
 // Calculate difference between start and end of default period
-var delayInDays = ((delayEnd - delayStart) / (1000 * 3600 * 24)) + 1; // +1 to count first and last day
+var delayInDays = (delayEnd - delayStart) / (1000 * 3600 * 24) + 1; // +1 to count first and last day
 
 // Calculate final interest rate with own interest rate or prime rate from bundesbank.de
 function calculatedInterestRate() {
   if (ownInterestRate > 0) {
     return ownInterestRate;
-  }
-  else {
+  } else {
     result = primeInterest;
     return result;
   }
@@ -55,7 +55,8 @@ function calculatedInterestRate() {
 var interestRate = calculatedInterestRate();
 
 // Calculate interest
-var sumInterest = ((originalClaimAmount * interestRate) / 100 / actEZB) * delayInDays;
+var sumInterest =
+  ((originalClaimAmount * interestRate) / 100 / actEZB) * delayInDays;
 
 // Options for date format
 optionsLocaleDate = {
@@ -70,9 +71,22 @@ function localizeDay() {
     return `${localize("ErrorDayCount")}`;
   }
   if (delayInDays == 1) {
-    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Day")} (${delayStart.toLocaleDateString(undefined, optionsLocaleDate)})`;
+    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(
+      delayInDays
+    )} ${localize("Day")} (${delayStart.toLocaleDateString(
+      undefined,
+      optionsLocaleDate
+    )})`;
   } else {
-    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(delayInDays)} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString(undefined, optionsLocaleDate)} ${localize("until")} ${delayEnd.toLocaleDateString(undefined, optionsLocaleDate)})`;
+    return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(
+      delayInDays
+    )} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString(
+      undefined,
+      optionsLocaleDate
+    )} ${localize("until")} ${delayEnd.toLocaleDateString(
+      undefined,
+      optionsLocaleDate
+    )})`;
   }
 }
 
@@ -88,7 +102,18 @@ function update() {
 
   aNotes = removePrevious(aNotes);
 
-  aLine = `${localizeDay()}\n${localize("OriginalClaim")}: ${new Intl.NumberFormat('lookup', { style: 'currency', currency: 'EUR', currencyDisplay: 'code' }).format(originalClaimAmount)} (${localize("Net")})\n${localize("InterestRate")}: ${new Intl.NumberFormat('lookup', { style: 'percent', maximumFractionDigits: '2' }).format(interestRate/100)}`;
+  aLine = `${localizeDay()}\n${localize(
+    "OriginalClaim"
+  )}: ${new Intl.NumberFormat("lookup", {
+    style: "currency",
+    currency: "EUR",
+    currencyDisplay: "code",
+  }).format(originalClaimAmount)} (${localize("Net")})\n${localize(
+    "InterestRate"
+  )}: ${new Intl.NumberFormat("lookup", {
+    style: "percent",
+    maximumFractionDigits: "2",
+  }).format(interestRate / 100)}`;
 
   aLine = "<i>" + aLine + "</i>";
 
