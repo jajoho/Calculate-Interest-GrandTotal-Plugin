@@ -28,7 +28,7 @@
 		</dict>	
 		<dict>
 			<key>label</key>
-			<string>OriginalClaimAmount</string>
+			<string>OriginalClaim</string>
 			<key>name</key>
 			<string>originalClaimAmount</string>
 			<key>type</key>
