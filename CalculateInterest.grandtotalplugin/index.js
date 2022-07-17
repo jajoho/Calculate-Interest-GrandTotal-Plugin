@@ -86,7 +86,7 @@ function update() {
 
   aNotes = removePrevious(aNotes);
 
-  aLine = `${localizeDay()}\n${localize("OriginalClaimAmount")}: ${new Intl.NumberFormat('lookup', { style: 'currency', currency: 'EUR', currencyDisplay: 'code' }).format(originalClaimAmount)}\n${localize("InterestRate")}: ${new Intl.NumberFormat("de-DE").format((interestRate))} %`;
+  aLine = `${localizeDay()}\n${localize("OriginalClaimAmount")}: ${new Intl.NumberFormat('lookup', { style: 'currency', currency: 'EUR', currencyDisplay: 'code' }).format(originalClaimAmount)} (${localize("net")})\n${localize("InterestRate")}: ${new Intl.NumberFormat("de-DE").format((interestRate))} %`;
 
   aLine = "<i>" + aLine + "</i>";
 

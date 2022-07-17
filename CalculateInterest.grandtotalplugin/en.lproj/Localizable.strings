@@ -12,3 +12,4 @@
 "Check Internet Connection" = "Check internet connection to retrieve prime rate.";
 "Own interest rate" = "Own interest rate";
 "ErrorDayCount" = "Error: Number of days must be a positive number";
+"net" = "net";
