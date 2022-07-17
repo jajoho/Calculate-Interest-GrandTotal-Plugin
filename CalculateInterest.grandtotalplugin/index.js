@@ -74,19 +74,14 @@ function localizeDay() {
     return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(
       delayInDays
     )} ${localize("Day")} (${delayStart.toLocaleDateString(
-      undefined,
       optionsLocaleDate
     )})`;
   } else {
     return `${localize("DelayPeriod")}: ${new Intl.NumberFormat().format(
       delayInDays
     )} ${localize("Days")} (${localize("from")} ${delayStart.toLocaleDateString(
-      undefined,
       optionsLocaleDate
-    )} ${localize("until")} ${delayEnd.toLocaleDateString(
-      undefined,
-      optionsLocaleDate
-    )})`;
+    )} ${localize("until")} ${delayEnd.toLocaleDateString(optionsLocaleDate)})`;
   }
 }
 
