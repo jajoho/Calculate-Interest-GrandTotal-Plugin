@@ -4,3 +4,4 @@
 .trunk/trunk.yaml
 .trunk/.gitignore
 .vscode/launch.json
+.trunk/logs
